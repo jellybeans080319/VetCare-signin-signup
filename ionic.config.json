@@ -1,0 +1,7 @@
+{
+  "name": "UrbanDoctors",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

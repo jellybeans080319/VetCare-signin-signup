@@ -1,0 +1,3 @@
+Firebase Authentication
+1. npm install firebase @angular/fire --save (installed na)
+2. npm install firebase

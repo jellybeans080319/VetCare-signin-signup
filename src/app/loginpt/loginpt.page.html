@@ -1,0 +1,56 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" >
+      <ion-button>
+        <ion-back-button defaultHref=""></ion-back-button>
+      </ion-button>
+     </ion-buttons>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content class="sign-in-content">
+  <div id="header">
+    <img alt="" src="assets/image5.png"/>
+  </div>
+
+  <form id="form" [formGroup]="signInForm" (ngSubmit)="signInWithEmail()">
+    
+    <ion-item class="ion-margin-bottom">
+      <ion-input type="text"  formControlName="email"  placeholder="Enter your email"></ion-input>
+      <ion-icon name="mail-outline" slot="start"></ion-icon>
+    </ion-item>
+    
+    <div class="error-container">
+      <ng-container *ngFor="let validation of validation_messages.email">
+        <div class="error-message" *ngIf="signInForm.get('email')?.hasError(validation.type) && (signInForm.get('email')?.dirty || signInForm.get('email')?.touched)">
+          <ion-icon color="red" name="information-circle"> </ion-icon>
+          <span>{{ validation.message }}</span>
+        </div>
+      </ng-container>
+    </div>    
+
+    <ion-item class="ion-margin-bottom">
+      <ion-input type="password" formControlName="password" placeholder="Enter your password"></ion-input>
+      <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+    </ion-item>
+    <div class="error-container">
+      <ng-container *ngFor="let validation of validation_messages.password">
+        <div class="error-message" *ngIf="signInForm.get('password')?.hasError(validation.type) && (signInForm.get('password')?.dirty || signInForm.get('password')?.touched)">
+          <ion-icon color="red" name="information-circle"></ion-icon>
+          <span>{{ validation.message }}</span>
+        </div>
+      </ng-container>
+    </div>
+    <p class="forgot"><a style="text-decoration: none" href="/forgotp">Forgot Password?</a></p>
+
+    <ion-button type="submit" expand="block" shape="round"  [disabled]="!signInForm.valid">LOGIN</ion-button>
+      <p class="bottom">Don't have an account? <a style="text-decoration: none" href="/signuppt">SIGN UP</a></p>
+      <p class="or">--OR--</p>
+      <div class="socialMedia">
+        <ion-icon name="logo-facebook" ></ion-icon>
+        <ion-icon name="logo-twitter"></ion-icon>
+        <ion-icon name="logo-google"></ion-icon>
+      </div>
+  </form>
+</ion-content>
